@@ -1,6 +1,6 @@
 {
   "name": "lab3-portfolio",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -21,7 +21,7 @@
   "main": "./bin/www",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/csc530/portfolio-website"
+    "url": "git+https://github.com/csc530/COMP2068.git"
   },
   "keywords": [
     "Express",
@@ -33,7 +33,7 @@
   "author": "Christofer Cousins",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/csc530/portfolio-website/issues"
+    "url": "https://github.com/csc530/COMP2068/issues"
   },
-  "homepage": "https://github.com/csc530/portfolio-website#readme"
+  "homepage": "https://github.com/csc530/COMP2068#readme"
 }
