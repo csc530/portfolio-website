@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 require('dotenv').config();
 const nodeMailer = require('nodemailer');
+const {upperCaseFirst:upperCase} = require('upper-case-first');
 
 /* GET users listing. */
 let options = {
@@ -14,7 +15,7 @@ router.get('/', function (req, res, next) {
 });
 router.post('/', function (req, res, next) {
 	let { fName, lName, email, msg, subject } = req.body;
-	const name = 'From: ' + (fName && lName) ? fName.toLocaleUpperCase()[0] + fName.slice(1).toLocaleLowerCase() + lName.toLocaleUpperCase()[0] + lName.slice(1).toLocaleLowerCase() : 'Anony Mous';
+	const name = 'From: ' + (fName && lName) ? upperCase(fName)+' '+upperCase(lName) : 'Anony Mous';
 	if (!subject) subject = 'No subject';
 	const senderEmail = process.env.SENDEREMAIL;
 	const myEmail = process.env.MYEMAIL;
