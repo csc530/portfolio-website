@@ -21,7 +21,7 @@ router.post('/', function (req, res, next) {
 	const pss = process.env.PSS;
 	const transporter = nodeMailer.createTransport({
 		host: 'smtp.gmail.com',
-		port: 587,
+		port: 80,
 		//change to production URL
 		secure: true,
 		requireTLS: true,
