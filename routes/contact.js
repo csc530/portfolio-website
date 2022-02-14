@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
 });
 router.post('/', function (req, res, next) {
 	let { fName, lName, email, msg, subject } = req.body;
-	const name = 'From: ' + (fName && lName) ? fName.toUpperCase()[0] + fName.slice(1).toLowerCase() + lName.toUpperCase()[0] + lName.slice(1).toLowerCase() : 'Anony Mous';
+	const name = 'From: ' + (fName && lName) ? fName + ' '+lName: 'Anony Mous';
 	if (!subject) subject = 'No subject';
 	const senderEmail = process.env.SENDEREMAIL;
 	const myEmail = process.env.MYEMAIL;

@@ -1,6 +1,6 @@
 {
   "name": "lab3-portfolio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -13,8 +13,7 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "nodemailer": "^6.7.2",
-    "upper-case-first": "^2.0.2"
+    "nodemailer": "^6.7.2"
   },
   "devDependencies": {
     "eslint": "^8.8.0",
