@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
 });
 router.post('/', function (req, res, next) {
 	let { fName, lName, email, msg, subject } = req.body;
-	const name = 'From: ' + (fName && lName) ? fName + ' '+lName: 'Anony Mous';
+	const name = (!!fName && !!lName) ? fName + ' '+lName: 'Anony Mous';
 	if (!subject) subject = 'No subject';
 	const senderEmail = process.env.SENDEREMAIL;
 	const myEmail = process.env.MYEMAIL;
@@ -35,7 +35,7 @@ router.post('/', function (req, res, next) {
 	const mailMessage = {
 		from: senderEmail,
 		to: `${email}, ${myEmail}`,
-		subject: `${name} - ${subject}`,
+		subject: `From: ${name} - ${subject}`,
 		text: msg
 	};
 
