@@ -23,7 +23,7 @@ router.post('/', function (req, res, next) {
 		host: 'smtp.gmail.com',
 		port: 587,
 		//change to production URL
-		secure: false,
+		secure: true,
 		requireTLS: true,
 		auth: {
 			type: 'LOGIN',
