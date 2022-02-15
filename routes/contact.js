@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-require('dotenv').config();
+// require('dotenv').config();
 const nodeMailer = require('nodemailer');
 
 /* GET users listing. */
