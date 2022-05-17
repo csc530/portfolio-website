@@ -25,7 +25,7 @@ router.get('/', async function (req, res) {
 				{name: 'Crypto.com Exchange API - JavaScript', link: 'https://github.com/csc530/crypto.com-exhcange-API'},
 				{name: "Nasa's Astronmy picture of the Day application - Java", link: 'https://github.com/csc530/advOOP-assignment2'},
 				{name: 'Content managment website - PHP', link: 'https://github.com/csc530/website-maker'},
-				{name: 'Family tree app - Kotlin (private)', link: 'https://csc530.github.io/Family-Tree/'},
+				{name: 'Family tree app - Kotlin', link: 'https://csc530.github.io/Family-Tree/'},
 			],
 			img: 'project.jpg',
 		},
