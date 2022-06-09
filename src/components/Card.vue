@@ -1,10 +1,10 @@
 <template>
-$END$
+
 </template>
 
-<script>
+<script setup>
 export default {
-name: "Card"
+	name: "Card"
 }
 </script>
 
