@@ -74,5 +74,5 @@ nav a.router-link-exact-active {
 </style>
 <script setup lang="ts">
 import Navbar from './components/Navbar.vue';
-import HelloWorld from './components/HelloWorld.vue';
+
 </script>

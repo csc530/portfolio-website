@@ -1,14 +1,19 @@
 <template>
-	<nav>
-		<router-link to="/" class="nav-link">Home</router-link>
-		<router-link to="/about" class="nav-link">About</router-link>
+	<!--	TODO: figures HelloWorld TODO Add mobile responsiveness with bulma
+	https://bulma.io/documentation/components/navbar/
+	-->
+	<nav class="navbar">
+		<router-link to="/" class="navbar-item">Home</router-link>
+		<router-link to="/about" class="navbar-item">About</router-link>
+		<router-link to="projects" class="navbar-item">Projects</router-link>
+		<router-link to="contact">Contact Me</router-link>
 	</nav>
 </template>
 
 <script setup>
-	import {ref} from 'vue';
-	
-	const Hi = ref('Hello World!');
+import {ref} from 'vue';
+
+const Hi = ref('Hello World!');
 </script>
 
 <style scoped></style>
