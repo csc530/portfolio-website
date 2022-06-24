@@ -18,7 +18,7 @@ const aboutRoute = {
 const contactRoute = {
   path: '/contact',
   name: 'contact',
-  component: () => import('../pages/contactView.vue'),
+  component: () => import('../pages/ContactView.vue'),
 };
 const routes: Array<RouteRecordRaw> = [
   homeRoute,

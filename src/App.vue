@@ -1,6 +1,7 @@
 <template>
 	<Navbar />
 	<router-view />
+  <Footer/>
 </template>
 
 <!-- 
@@ -74,5 +75,5 @@ nav a.router-link-exact-active {
 </style>
 <script setup lang="ts">
 import Navbar from './components/Navbar.vue';
-
+import  Footer from './components/footer.vue';
 </script>
