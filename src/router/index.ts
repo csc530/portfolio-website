@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "../pages/HomeView.vue";
+import HomeView from "../pages/home.vue";
 
 let homeRoute = {
   path: "/",
@@ -13,12 +13,12 @@ const aboutRoute = {
   // this generates a separate chunk (about.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
   component: () =>
-      import(/* webpackChunkName: "about" */ "../pages/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ "../pages/about.vue"),
 };
 const contactRoute = {
   path: '/contact',
   name: 'contact',
-  component: () => import('../pages/ContactView.vue'),
+  component: () => import('../pages/contact.vue'),
 };
 const routes: Array<RouteRecordRaw> = [
   homeRoute,
