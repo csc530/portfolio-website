@@ -2,8 +2,8 @@
 	<section class="hero is-success is-fullheight">
 		<!-- Hero head: will stick at the top -->
 		<header class="navbar hero-head ml-1 mr-1">
-			<div class="navbar-brand">
-				<p class="title"><strong>Christofer Cousins</strong></p>
+			<div class=" navbar-brand is-align-content-center is-flex">
+				<p class="title m-auto"><strong >Christofer Cousins</strong></p>
 				
 				<div class="navbar-burger" data-target="navbarMenuHeroC">
 					<span></span>
@@ -60,7 +60,6 @@
 	
 	const currentTopic = ref(0);
 	const display = (index: number) => {
-		console.log(index);
 		currentTopic.value = index;
 	};
 	
@@ -70,7 +69,6 @@
 	}
 	
 	function getTopicTitle(topic: any) {
-		console.dir(topic);
 		if(typeof (topic) !== 'object')
 			return;
 		const {title, name} = topic;
