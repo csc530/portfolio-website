@@ -1,7 +1,7 @@
 <template>
-	<the-navbar />
+	<the-navbar v-show="!isHome" />
 	<router-view />
-	<footer />
+	<footer v-show="!isHome" />
 </template>
 
 <!-- 
@@ -52,26 +52,17 @@ module.exports = router;
  -->
 
 <style>
-#app {
-	font-family             : Avenir, Helvetica, Arial, sans-serif;
-	text-align              : center;
-	color                   : #2C3E50;
-	-webkit-font-smoothing  : antialiased;
-	-moz-osx-font-smoothing : grayscale;
-}
-
-nav {
-	padding : 30px;
-}
-
-nav a {
-	font-weight : bold;
-	color       : #2C3E50;
-}
-
-nav a.router-link-exact-active {
-	color : #42B983;
-}
 </style>
+
 <script lang="ts" setup>
-import TheNavbar from "@/components/TheNavbar.vue";</script>
+import TheNavbar from "@/components/TheNavbar.vue";
+import {useRoute, useRouter} from 'vue-router';
+import {computed} from "vue";
+
+const router = useRouter();
+const route = useRoute();
+
+const isHome = computed(() => {
+	return route.path === '/';
+});
+</script>
