@@ -12,8 +12,7 @@
 		</div>
 		
 		<nav id="navbarMenuHeroC" class="navbar-menu navbar-end">
-			<router-link v-for="router in $router.getRoutes()" :to="router.path" active-class="has-text-weight-bold"
-			             class="navbar-item">
+			<router-link v-for="router in $router.getRoutes()" :to="router.path" class="navbar-item">
 				{{ router.name }}
 			</router-link>
 		</nav>
