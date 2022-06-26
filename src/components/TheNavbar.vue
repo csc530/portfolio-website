@@ -1,14 +1,19 @@
 <template>
-	<!--	TODO: figures HelloWorld TODO Add mobile responsiveness with bulma
-	https://bulma.io/documentation/components/navbar/
-	-->
-	<header class="navbar has-text-centered">
-		<strong class="navbar-brand navbar-item">
-			Christofer Cousins
-		</strong>
-		<!--		TODO: figures route HelloWorld TODO bind classes TODO activate page TODO shadow script higlighted router sumin-->
-		<nav class="navbar-end ">
-			<router-link v-for="router in $router.getRoutes()" :to="router.path" class="navbar-item">
+	<!-- Hero head: will stick at the top -->
+	<header class="navbar hero-head ml-1 mr-1">
+		<div class=" navbar-brand is-align-content-center is-flex">
+			<p class="title m-auto"><strong >Christofer Cousins</strong></p>
+			
+			<div class="navbar-burger" data-target="navbarMenuHeroC">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		
+		<nav id="navbarMenuHeroC" class="navbar-menu navbar-end">
+			<router-link v-for="router in $router.getRoutes()" :to="router.path" active-class="has-text-weight-bold"
+			             class="navbar-item">
 				{{ router.name }}
 			</router-link>
 		</nav>

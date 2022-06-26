@@ -1,9 +1,11 @@
 <template>
-
+	<!-- Hero footer: will stick at the bottom -->
+	<footer class="hero-foot">
+	
+	</footer>
 </template>
 
 <script setup>
-const name = 'footer';
 
 </script>
 
