@@ -22,7 +22,7 @@ const contactRoute = {
 };
 const f04Route = {
 	path: "/404",
-	name: "⓸",
+	name: "⓸⓪⓸",
 	component: () => import("../pages/404.vue"),
 }
 const DNERoute = {

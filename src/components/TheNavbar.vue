@@ -2,7 +2,7 @@
 	<!-- Hero head: will stick at the top -->
 	<header class="navbar hero-head ml-1 mr-1">
 		<div class=" navbar-brand is-align-content-center is-flex">
-			<p class="title m-auto"><strong >Christofer Cousins</strong></p>
+			<p class="title m-auto"><strong>Christofer Cousins</strong></p>
 			
 			<div class="navbar-burger" data-target="navbarMenuHeroC">
 				<span></span>
@@ -12,7 +12,8 @@
 		</div>
 		
 		<nav id="navbarMenuHeroC" class="navbar-menu navbar-end">
-			<router-link v-for="router in $router.getRoutes()" :to="router.path" class="navbar-item">
+			<router-link v-for="router in $router.getRoutes().filter(route => route.name !== '⓸⓪⓸')" :to="router.path"
+			             class="navbar-item">
 				{{ router.name }}
 			</router-link>
 		</nav>
@@ -20,12 +21,9 @@
 </template>
 
 <script setup>
-	
-	import {useRoute, useRouter} from 'vue-router';
+	import {useRouter} from 'vue-router';
 	
 	const router = useRouter();
-	const route = useRoute();
-
 </script>
 
 <style scoped></style>
