@@ -4,7 +4,7 @@
 	<!-- Hero content: will be in the middle -->
 	<main class="hero-body container has-text-centered is-flex-wrap-wrap is-flex-direction-column">
 		<h1 class="title">{{ getTopicTitle(topics[currentTopic]) }}</h1>
-		<p class="is-flex-grow-2">
+		<p class="is-flex-grow-2 is-wrapped">
 			<slot>{{ getTopicTxt(topics[currentTopic]) }}</slot>
 		</p>
 		
@@ -37,16 +37,14 @@
 			required: true
 		}
 	});
-	
 	const currentTopic = ref(0);
+	
 	const display = (index: number) => {
 		currentTopic.value = index;
 	};
-	
 	function activeTopic(index: number) {
 		return index === currentTopic.value ? 'has-text-weight-bold is-active' : '';
 	}
-	
 	function getTopicTitle(topic: any) {
 		if(typeof (topic) !== 'object')
 			return;
@@ -58,7 +56,6 @@
 		else
 			return Object.values(topic)[0];
 	}
-	
 	function getTopicTxt(topic: any) {
 		if(typeof (topic) !== 'object')
 			return;
