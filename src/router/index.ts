@@ -27,6 +27,7 @@ const f04Route = {
 }
 const DNERoute = {
 	path: '/:pathMatch(.*)*',
+	name: '⓸⓪⓸',
 	redirect: '/404',
 };
 
