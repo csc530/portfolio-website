@@ -5,14 +5,20 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "css-build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch",
+    "start-dev": "npm run start",
+    "ui-config": "npm vue ui"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
+    "core-js": "^3.23.3",
     "eslint": "^8.17.0",
     "firebase": "^9.8.4",
+    "node-sass": "^7.0.1",
     "prettier": "^2.6.2",
-    "vue": "^3.2.13",
+    "vue": "^3.2.37",
     "vue-class-component": "^8.0.0-0",
     "vue-meta": "^2.4.0",
     "vue-router": "^4.0.3"
@@ -25,10 +31,14 @@
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
+    "bulma": "^0.9.4",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
+    "style-resources-loader": "^1.4.1",
     "typescript": "~4.5.5"
   },
   "eslintConfig": {
