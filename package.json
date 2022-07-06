@@ -10,7 +10,7 @@
     "css-watch": "npm run css-build -- --watch",
     "start": "npm run css-watch",
     "start-dev": "npm run start",
-    "ui-config": "npm vue ui"
+    "ui-config": "vue ui || npx @vue ui"
   },
   "dependencies": {
     "core-js": "^3.23.3",

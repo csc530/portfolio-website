@@ -24,14 +24,34 @@ const f04Route = {
 	path: "/404",
 	name: "⓸⓪⓸",
 	component: () => import("../pages/404.vue"),
-}
-const DNERoute = {
+};
+const DNERoute: RouteRecordRaw = {
 	path: '/:pathMatch(.*)*',
 	name: '⓸⓪⓸',
 	redirect: '/404',
 };
+const skillsRoute = {
+	path: 'skills',
+	name: 'skills',
+	component: () => import('@/pages/employment/Skills.vue'),
+};
+const certificatesRoute = {
+	path: 'certifications',
+	name: 'certificate',
+	component: () => import('@/pages/employment/Certificates.vue'),
+};
+const employmentRoute: RouteRecordRaw = {
+	path: '/employment',
+	name: 'employment',
+	component: () => import('@/pages/employment/Employment.vue'),
+	children: [
+		certificatesRoute,
+		skillsRoute
+	],
+	
+};
 
-const routes: RouteRecordRaw[] = [homeRoute, aboutRoute, contactRoute, DNERoute, f04Route];
+const routes: RouteRecordRaw[] = [homeRoute, aboutRoute, contactRoute, DNERoute, f04Route, employmentRoute];
 
 const router = createRouter({
 	history: createWebHistory(),
