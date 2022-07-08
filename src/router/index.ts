@@ -20,15 +20,21 @@ const contactRoute = {
 	name: 'contact',
 	component: () => import('../pages/Contact.vue'),
 };
-const f04Route = {
+const f04Route: RouteRecordRaw = {
 	path: "/404",
 	name: "⓸⓪⓸",
 	component: () => import("../pages/404.vue"),
+	meta: {
+		isInvisible: true
+	}
 };
 const DNERoute: RouteRecordRaw = {
 	path: '/:pathMatch(.*)*',
 	name: '⓸⓪⓸',
 	redirect: '/404',
+	meta: {
+		isInvisible: true,
+	}
 };
 const skillsRoute = {
 	path: 'skills',

@@ -23,7 +23,7 @@
 	import {RouteRecord, RouteRecordRaw, useRouter} from 'vue-router';
 	import {computed} from "vue";
 	
-	const routes = useRouter().getRoutes();
+	const routes = useRouter().getRoutes().filter(route => !route.meta.isInvisible);
 	const getChildRoutes = computed(() => {
 		let kids: Array<RouteRecordRaw> = [];
 		routes.filter(route => route.children.length > 0).forEach(route => kids = route.children.concat(kids));
@@ -32,7 +32,6 @@
 	
 	function isChildRoute(route: RouteRecord): boolean {
 		return getChildRoutes.value.some(child => {
-			console.log(child.name, route.name);
 			return child.name === route.name;
 		});
 	}
