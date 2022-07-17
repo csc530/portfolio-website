@@ -5,8 +5,11 @@
 			<p>Learn a little more about me and such yadda yadda.</p>
 		</section>
 		<section class="columns">
-			<section class="column card">
-				<h2 class="title card-header-title">Education</h2>
+			<article class="column">
+			<base-card>
+				<template #header>
+					<h2 class="title card-header-title">Education</h2>
+				</template>
 				<p>
 					<strong>Honours Bachelor of Science (Computer Science)</strong>
 					<br>
@@ -16,17 +19,21 @@
 					<br>
 					<small>GPA: 86.57%</small>
 				</p>
-			</section>
-			<section class="column">
-				<h2 class="title">Hobbies &amp; Interests</h2>
-				<p>
-					<!--List of my hobbies and interests-->
-				</p>
+			</base-card>
+			</article>
+			<section class="column card">
+				<h2 class="title card-header-title">Hobbies &amp; Interests</h2>
+				<ul>
+					<li>Programming</li>
+					<li>Film Critique</li>
+					<li>Gaming</li>
+					<li>Cooking</li>
+				</ul>
 			</section>
 		</section>
-			<section>
-				<h2 class="title">Experience</h2>
-				<ul class="list">
+		<section>
+			<h2 class="title">Experience</h2>
+			<ul class="list">
 				<li class="column">
 					<strong>Software Developer</strong>
 					<br>
@@ -38,15 +45,16 @@
 						<strong>Duration:</strong> 2019 - Present
 					</small>
 				</li>
-				</ul>
-			</section>
+			</ul>
+		</section>
 	</main>
 </template>
 <style scoped>
 
 </style>
 <script setup>
+	import BaseCard from '@/components/BaseCard';
+	
 	name = 'About';
-
 </script>
 
