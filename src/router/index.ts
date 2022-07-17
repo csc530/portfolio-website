@@ -20,18 +20,44 @@ const contactRoute = {
   name: 'contact',
   component: import('../pages/Contact.vue'),
 };
-const f04Route = {
+const f04Route: RouteRecordRaw = {
 	path: "/404",
 	name: "⓸⓪⓸",
 	component: () => import("../pages/404.vue"),
-}
-const DNERoute = {
+	meta: {
+		isInvisible: true
+	}
+};
+const DNERoute: RouteRecordRaw = {
 	path: '/:pathMatch(.*)*',
 	name: '⓸⓪⓸',
 	redirect: '/404',
+	meta: {
+		isInvisible: true,
+	}
+};
+const skillsRoute = {
+	path: 'skills',
+	name: 'skills',
+	component: () => import('@/pages/employment/Skills.vue'),
+};
+const certificatesRoute = {
+	path: 'certifications',
+	name: 'certificate',
+	component: () => import('@/pages/employment/Certificates.vue'),
+};
+const employmentRoute: RouteRecordRaw = {
+	path: '/employment',
+	name: 'employment',
+	component: () => import('@/pages/employment/Employment.vue'),
+	children: [
+		certificatesRoute,
+		skillsRoute
+	],
+	
 };
 
-const routes: RouteRecordRaw[] = [homeRoute, aboutRoute, contactRoute, DNERoute, f04Route];
+const routes: RouteRecordRaw[] = [homeRoute, aboutRoute, contactRoute, DNERoute, f04Route, employmentRoute];
 
 const router = createRouter({
 	history: createWebHistory(),

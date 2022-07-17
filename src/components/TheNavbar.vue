@@ -12,18 +12,32 @@
 		</div>
 		
 		<nav id="navbarMenuHeroC" class="navbar-menu navbar-end">
-			<router-link v-for="router in $router.getRoutes().filter(route => route.name !== '⓸⓪⓸')" :to="router.path"
-			             class="navbar-item">
-				{{ router.name }}
+			<router-link v-for="route in rootRoutes" :to="route.path" class="navbar-item">
+				{{ route.name }}
 			</router-link>
 		</nav>
 	</header>
 </template>
-
 <style scoped></style>
-
-<script setup lang="ts">
-	import {useRouter} from 'vue-router';
+<script lang="ts" setup>
+	import {RouteRecord, RouteRecordRaw, useRouter} from 'vue-router';
+	import {computed} from "vue";
 	
-	const router = useRouter();
+	const routes = useRouter().getRoutes().filter(route => !route.meta.isInvisible);
+	const getChildRoutes = computed(() => {
+		let kids: Array<RouteRecordRaw> = [];
+		routes.filter(route => route.children.length > 0).forEach(route => kids = route.children.concat(kids));
+		return kids;
+	});
+	
+	function isChildRoute(route: RouteRecord): boolean {
+		return getChildRoutes.value.some(child => {
+			return child.name === route.name;
+		});
+	}
+	
+	const rootRoutes = computed(() => {
+		return routes.filter(route => !isChildRoute(route));
+	});
 </script>
+
