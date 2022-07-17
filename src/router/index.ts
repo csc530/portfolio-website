@@ -16,9 +16,9 @@ const aboutRoute = {
 		import(/* webpackChunkName: "about" */ "../pages/About.vue"),
 };
 const contactRoute = {
-	path: '/contact',
-	name: 'contact',
-	component: () => import('../pages/Contact.vue'),
+	 path: '/contact',
+  name: 'contact',
+  component: import('../pages/Contact.vue'),
 };
 const f04Route = {
 	path: "/404",
@@ -38,6 +38,5 @@ const router = createRouter({
 	routes,
 	linkActiveClass: "has-text-weight-bold is-underlined",
 });
-
 
 export default router;

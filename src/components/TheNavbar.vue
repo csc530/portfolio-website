@@ -20,10 +20,10 @@
 	</header>
 </template>
 
-<script setup>
+<style scoped></style>
+
+<script setup lang="ts">
 	import {useRouter} from 'vue-router';
 	
 	const router = useRouter();
 </script>
-
-<style scoped></style>
