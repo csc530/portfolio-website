@@ -2,7 +2,6 @@
 	
 	
 	<!-- Hero content: will be in the middle -->
-	<main class="hero-body container has-text-centered is-flex-wrap-wrap is-flex-direction-column">
 		<h1 class="title">{{ getTopicTitle(topics[currentTopic]) }}</h1>
 		<p class="is-flex-grow-2 is-wrapped">
 			<slot>{{ getTopicTxt(topics[currentTopic]) }}</slot>
@@ -16,16 +15,9 @@
 				</li>
 			</ul>
 		</nav>
-	</main>
-
 </template>
 
-<style scoped>
-	
-	.hero-foot li:hover {
-		cursor          : pointer;
-		backdrop-filter : invert(100%);
-	}
+<style>
 </style>
 
 <script lang="ts" setup>

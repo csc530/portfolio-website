@@ -1,6 +1,6 @@
 <template>
 	<the-navbar />
-	<main class="hero-body">
+	<main class="hero-body container has-text-centered is-flex-wrap-wrap is-flex-direction-column">
 		<router-view />
 	</main>
 	<the-footer />
@@ -60,9 +60,7 @@
 	import TheNavbar from "@/components/TheNavbar.vue";
 	import {useRoute, useRouter} from 'vue-router';
 	import {computed} from "vue";
-	import TheFooter from "@/components/TheFooter.vue";
-	import {app, analytics} from "./main";
-	
+	import TheFooter from "@/components/TheFooter.vue";	
 	
 	const router = useRouter();
 	const route = useRoute();

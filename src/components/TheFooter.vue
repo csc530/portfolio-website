@@ -1,6 +1,6 @@
 <template>
 	<!-- Hero footer: will stick at the bottom -->
-	<footer class="hero-foot columns is-dark">
+	<footer class="hero-foot is-dark">
 		<ul class="columns is-multiline">
 			<li v-for="link in links">
 				<a :href="link.href">
@@ -11,7 +11,7 @@
 	</footer>
 </template>
 
-<script setup>
+<script setup lang="js">
 	const links = [
 		{
 			href: '#',
