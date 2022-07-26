@@ -1,8 +1,8 @@
 <template>
-	<h1>{{props.header.text}}</h1>
-	<section class="columns" :class="bulma">
+	<base-header v-if="header" v-bind="header"></base-header>
+	<section :class="bulma" class="columns">
 		<div v-for="item in data" class="column">
-			<slot v-bind="item" v-if="$slots.default" />
+			<slot v-if="$slots.default" v-bind="item" />
 			<component :is="component" v-else v-bind="item">
 				{{ item.display() }}
 			</component>
@@ -11,41 +11,17 @@
 </template>
 
 <script lang="ts" setup>
-	import {defineComponent, defineProps, PropType,} from "vue";
-	import {Columnable, ColumnHeader} from "@/models/columnContent";
-	
-	const props = defineProps({
-		data: {
-			type: Array as PropType<Array<Columnable>>,
-			required: true,
-		},
-		component: {
-			type: String,
-		},
-		bulma: {
-			type: Array as PropType<string[]>,
-			default: ['is-centered', 'is-multiline'],
-		},
-		header: {
-			type: Object as PropType<ColumnHeader>,
-		}
-	});
-	console.log(props.header);
-	// export default defineComponent({
-	// 	props: {
-	// 		data: {
-	// 			type: Array as PropType<Columnable[]>,
-	// 			required: true,
-	// 		},
-	// 		component: {
-	// 			type: String,
-	// 		},
-	// 		bulma: {
-	// 			type: Array as PropType<string[]>,
-	// 			default: ['is-centered', 'is-multiline'],
-	// 		},
-	// 	},
-	// });
+	import {defineProps,} from "vue";
+	import Columnable, {ColumnHeader} from "@/models/columnContent";
+	import BaseHeader from "@/components/BaseHeader.vue";
+
+	const props = defineProps<{
+		data:Columnable[],
+		component?:  string,
+		//TODO: create class of class list that has default constructor
+		bulma?: string[]| ['is-centered', 'is-multiline'],
+		header?: ColumnHeader,
+	}>();
 </script>
 
 <style scoped>

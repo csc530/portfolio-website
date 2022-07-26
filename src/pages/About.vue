@@ -3,7 +3,6 @@
 		<h1 class="title">About</h1>
 		<p>Learn a little more about me and such yadda yadda.</p>
 	</section>
-	
 	<base-columns v-bind:data="aboutMe">
 		<template #default="{title,content,list}">
 			<base-card>
@@ -38,12 +37,11 @@
 
 	import BaseCard from "../components/BaseCard.vue";
 	import BaseColumns from '@/components/BaseColumns.vue';
-	import {Columnable, ColumnHeader} from '../models/columnContent';
+	import Columnable, { ColumnHeader} from '../models/columnContent';
 	const Employment:ColumnHeader={
 		text:"employment",
-		
 		level: 3
-	}
+	};
 	interface AboutColumn extends Columnable {
 		title: string;
 		link?: string[] | Record<string, string>;
@@ -59,7 +57,7 @@
 		tasks: string[];
 		address: string,
 		term: [string, string?]
-	};
+	}
 	
 	const getDate = (date: string): string => Date.parse(date).toLocaleString();
 	
@@ -80,7 +78,7 @@
 		tasks: [],
 		address: "",
 		term: [getDate('2019-10-25')]
-	}
+	};
 	const education: AboutColumn = {
 		title: 'Education',
 		content: 'Honours Bachelor of Science (Computer Science)<br/>GPA: 86.57%',
