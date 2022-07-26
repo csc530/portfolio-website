@@ -1,6 +1,4 @@
 <template>
-	
-	
 	<!-- Hero content: will be in the middle -->
 		<h1 class="title">{{ getTopicTitle(topics[currentTopic]) }}</h1>
 		<p class="is-flex-grow-2 is-wrapped">

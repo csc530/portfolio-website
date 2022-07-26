@@ -1,6 +1,6 @@
 <template>
 	<the-navbar />
-	<main class="hero-body container has-text-centered is-flex-wrap-wrap is-flex-direction-column">
+	<main class="hero-body container is-flex-wrap-wrap is-flex-direction-column content">
 		<router-view />
 	</main>
 	<the-footer />

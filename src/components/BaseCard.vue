@@ -12,8 +12,10 @@
 	</section>
 </template>
 
-<style scoped>
-
+<style>
+.card-content {
+	padding-top: 0rem;
+}
 </style>
 
 <script lang="ts" setup>
