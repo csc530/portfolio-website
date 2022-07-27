@@ -17,6 +17,5 @@
 		text: string,
 		level: number,
 	}>();
-	console.log(props);
 </script>
 

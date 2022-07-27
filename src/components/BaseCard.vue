@@ -1,12 +1,18 @@
 <template>
-	<section class="card" :id="id">
+	<section class="card">
 		<header v-if="$slots.header" class="card-header-title">
-			<slot id="header" name="header"/>
+			<slot id="header" name="header" />
 		</header>
 		<div class="card-content">
-			<slot/>
+			<slot />
 		</div>
-		<footer v-if="$slots.footer" class="card-footer">
+		
+			<ul v-if="footerItems &&$slots.footer" class="card-footer">
+				<li v-for="item in footerItems" class="card-footer-item">
+				<slot id="footer" name="footer" :data="item" />
+				</li>
+			</ul>
+			<footer v-else-if="$slots.footer" class="card-footer">
 			<slot name="footer" />
 		</footer>
 	</section>
@@ -19,11 +25,14 @@
 </style>
 
 <script lang="ts" setup>
-	
-	
-	import {Slots} from "vue";
-	
-	const {id} = defineProps(['id']);
-	
+
+
+import { Slots } from "vue";
+
+const props = defineProps<{
+	footerItems?: any[];
+}>();
+console.dir(props.footerItems);
+
 </script>
 

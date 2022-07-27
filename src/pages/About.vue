@@ -18,13 +18,20 @@
 			</base-card>
 		</template>
 	</base-columns>
-	<base-columns :data="employment" :header="Employment">
-		<template #default="{title,tasks,address}">
-			<base-card>
+	<base-columns :data="employment" :header="employmentHeader" >
+		<template #default="{title,tasks,address, term}">
+			<base-card :footer-items="[term.join(' - '),address,]">
 				<template v-slot:header>
 					<h2>{{ title }}</h2>
 				</template>
-				
+				<ul v-if="tasks">
+					<li v-for="task in tasks">
+						{{ task }}
+					</li>
+				</ul>
+				<template #footer="{data}">
+					<p>{{ data }}</p>
+				</template>
 			</base-card>
 		</template>
 	</base-columns>
@@ -38,7 +45,7 @@
 	import BaseCard from "../components/BaseCard.vue";
 	import BaseColumns from '@/components/BaseColumns.vue';
 	import Columnable, { ColumnHeader} from '../models/columnContent';
-	const Employment:ColumnHeader={
+	const employmentHeader:ColumnHeader={
 		text:"employment",
 		level: 3
 	};
@@ -59,7 +66,6 @@
 		term: [string, string?]
 	}
 	
-	const getDate = (date: string): string => Date.parse(date).toLocaleString();
 	
 	const tommyHilfiger: EmploymentColumn = {
 		title: "Stock Associate",
@@ -68,7 +74,7 @@
 		display: function(): string {
 			return `${this.tasks.join()}`;
 		},
-		term: ['']
+		term: ['2019-10-25','present']
 	};
 	const ops: EmploymentColumn = {
 		title: "Ontario Public Service: Land and Resource Cluster",
@@ -77,7 +83,7 @@
 		},
 		tasks: [],
 		address: "",
-		term: [getDate('2019-10-25')]
+		term: ['2022-05-16', '2022-09-02']
 	};
 	const education: AboutColumn = {
 		title: 'Education',
@@ -97,7 +103,7 @@
 			throw new Error("Function not implemented.");
 		}
 	};
-	const aboutMe: Columnable[] = [education, hobbies,];
-	const employment: Columnable[] = [tommyHilfiger, ops]
+	const aboutMe: AboutColumn[] = [education, hobbies,];
+	const employment: EmploymentColumn[] = [tommyHilfiger, ops]
 </script>
 
