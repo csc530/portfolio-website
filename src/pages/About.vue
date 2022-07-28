@@ -1,7 +1,6 @@
 <template>
 	<section class="content">
-		<h1 class="title">About</h1>
-		<p>Learn a little more about me and such yadda yadda.</p>
+		<h1 class="title">All about me</h1>
 	</section>
 	<base-columns v-bind:data="aboutMe">
 		<template #default="{title,content,list}">
@@ -30,7 +29,8 @@
 					</li>
 				</ul>
 				<template #footer="{data}">
-					<p>{{ data }}</p>
+					<time v-if="data.includes(' - ')">{{ data}}</time>
+					<address v-else>{{ data }}</address>
 				</template>
 			</base-card>
 		</template>
