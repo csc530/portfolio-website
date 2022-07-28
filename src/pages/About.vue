@@ -10,29 +10,11 @@
 					<h2>{{ title }}</h2>
 				</template>
 				<p v-if="content" v-html="content" />
-				<ul v-if="list">
+				<ul v-if="list" class="">
 					<li v-for="item in list">
 						<p>{{ item }}</p>
 					</li>
 				</ul>
-			</base-card>
-		</template>
-	</base-columns>
-	<base-columns :data="employment" :header="employmentHeader" >
-		<template #default="{title,tasks,address, term}">
-			<base-card :footer-items="[term.join(' - '),address,]">
-				<template v-slot:header>
-					<h2>{{ title }}</h2>
-				</template>
-				<ul v-if="tasks">
-					<li v-for="task in tasks">
-						{{ task }}
-					</li>
-				</ul>
-				<template #footer="{data}">
-					<time v-if="data.includes(' - ')">{{ data}}</time>
-					<address v-else>{{ data }}</address>
-				</template>
 			</base-card>
 		</template>
 	</base-columns>
@@ -41,15 +23,11 @@
 <style scoped>
 
 </style>
-<script setup lang="ts">
-
+<script lang="ts" setup>
+	
 	import BaseCard from "../components/BaseCard.vue";
 	import BaseColumns from '@/components/BaseColumns.vue';
-	import Columnable, { ColumnHeader} from '../models/columnContent';
-	const employmentHeader:ColumnHeader={
-		text:"employment",
-		level: 3
-	};
+	import Columnable, {ColumnHeader} from '../models/columnContent';
 	interface AboutColumn extends Columnable {
 		title: string;
 		link?: string[] | Record<string, string>;
@@ -59,32 +37,17 @@
 		footer?: string;
 	}
 	
-	interface EmploymentColumn extends Columnable {
-		title: string;
-		link?: string[] | Record<string, string>;
-		tasks: string[];
-		address: string,
-		term: [string, string?]
-	}
-	
-	
-	const tommyHilfiger: EmploymentColumn = {
-		title: "Stock Associate",
-		address: 'Tommy Hilfiger, Mississauga, ON',
-		tasks: ['Educated and trained new hires on company policies and procedures', 'Inspected incoming and outgoing shipments to verify accuracy and prevent errors.', 'Collaborated with team members to ensure correct products were delivered on time'],
+	const media: AboutColumn = {
+		title: 'Favourite Media (Movies, Tv Shows, Games, etc.)',
+		list: [
+			'Pokémon Mystery Dungeon: Explorers of Darkness',
+			'Final Space',
+			'The Alchemist Code',
+			'Throne of Glass'
+		],
 		display: function(): string {
-			return `${this.tasks.join()}`;
-		},
-		term: ['2019-10-25','present']
-	};
-	const ops: EmploymentColumn = {
-		title: "Ontario Public Service: Land and Resource Cluster",
-		display: function(): string {
-			throw new Error("Function not implemented.");
-		},
-		tasks: [],
-		address: "",
-		term: ['2022-05-16', '2022-09-02']
+			throw new Error('Function not implemented.');
+		}
 	};
 	const education: AboutColumn = {
 		title: 'Education',
@@ -102,9 +65,9 @@
 		list: ['Programming', 'Film Critique', 'Gaming', 'Cooking'],
 		display: function(): string {
 			throw new Error("Function not implemented.");
-		}
+		},
+		class: ['is-narrow'],
 	};
-	const aboutMe: AboutColumn[] = [education, hobbies,];
-	const employment: EmploymentColumn[] = [tommyHilfiger, ops]
+	const aboutMe: AboutColumn[] = [education, hobbies, media];
 </script>
 

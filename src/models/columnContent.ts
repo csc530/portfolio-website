@@ -1,5 +1,6 @@
 export default interface Columnable {
 	display: () => string;
+	class?: string[];
 }
 
 export interface ColumnHeader {

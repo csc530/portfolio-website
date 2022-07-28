@@ -1,7 +1,7 @@
 <template>
 	<base-header v-if="header" v-bind="header"></base-header>
 	<section :class="bulma" class="columns">
-		<div v-for="item in data" class="column">
+		<div v-for="item in data" class="column" :class="item.class">
 			<slot v-if="$slots.default" v-bind="item" />
 			<component :is="component" v-else v-bind="item">
 				{{ item.display() }}
