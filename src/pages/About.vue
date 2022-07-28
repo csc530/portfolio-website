@@ -1,6 +1,7 @@
 <template>
 	<section class="content">
 		<h1 class="title">All about me</h1>
+		<!--TODO: Three images with text representing me-->
 	</section>
 	<base-columns v-bind:data="aboutMe">
 		<template #default="{title,content,list}">
