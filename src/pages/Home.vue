@@ -3,49 +3,38 @@
 </template>
 
 <script lang="ts">
-import {Options, Vue} from "vue-class-component";
-import HeroHome from '@/components/HeroHome.vue';
-
-@Options({components: {HeroHome}})
-export default class Home extends Vue {
-	///todo: maybe add firebase access to load txt for all the topics of me
-	topics = [
-		{
-			title: 'Christofer Cousins',
-			txt: `Hey I'm Christofer Cousins, I am a software developer and I love to code. I am currently working on a project called "The-Maze".`
-		},
-		{
-			title: 'Student',
-			txt: 'Lakehead Georgian Honours Bachelor of Science (Computer Science)',
-			img: 'lakehead-georgian.png',
-			link: '/about'
-		},
-		{
-			title: 'Aspiring Full-Stack Developer',
-			txt: 'I currently have skills in web and desktop application development. I am working on my android applications and data structures.',
-			img: 'programmer-typing.gif',
-			link: '/about'
-		},
-		{
-			title: 'Projects',
-			txt: 'more project work available upon request',
-			items: [
-				{name: 'Crypto.com Exchange API - JavaScript', link: 'https://github.com/csc530/crypto.com-exhcange-API'},
-				{
-					name: "Nasa's Astronmy picture of the Day application - Java",
-					link: 'https://github.com/csc530/advOOP-assignment2'
-				},
-				{name: 'Content managment website - PHP', link: 'https://github.com/csc530/website-maker'},
-				{name: 'Family tree app - Kotlin', link: 'https://csc530.github.io/Family-Tree/'},
-			],
-			img: 'project.jpg',
-		},
-		{
-			title: 'A picture of me😃',
-			alt: 'A photo of me',
-			src: 'portrait.jpg',
-			link: '/about'
-		},
-	];
-}
+	import {Options, Vue} from "vue-class-component";
+	import HeroHome from '@/components/HeroHome.vue';
+	import Topic from "@/models/topic";
+	
+	const christofer: Topic = {
+		title: 'Christofer Cousins',
+		content: `Hey I'm Christofer Cousins, I am a software developer and I love to code. I am currently working at the OPS as a web developer assistant.I enjoy problem solving (probably the reason why I love programming), playing games, learning, and volunteering with a local food bank, Umbrella of Hope.`,
+	};
+	const student: Topic = {
+		title: 'Student',
+		content: 'I\'m currently studying at Lakehead Georgian in the Honours Bachelor of Science (Computer Science) program',
+		img: 'lakehead-georgian.png',
+	};
+	const developer = {
+		title: 'Aspiring Full-Stack Developer',
+		content: 'I am an excellent programmer and developer if I do say so myself😎. With experience of various languages and core programming concepts. Right now, I am looking for a job as a full-stack developer.',
+		img: 'programmer-typing.gif',
+	};
+	const projects = {
+		title: 'Projects',
+		content: 'more project work available upon request',
+		img: 'project.jpg',
+	};
+	
+	@Options({components: {HeroHome}})
+	export default class Home extends Vue {
+		///todo: maybe add firebase access to load txt for all the topics of me
+		topics: Topic[] = [
+			christofer,
+			student,
+			developer,
+			projects,
+		];
+	}
 </script>

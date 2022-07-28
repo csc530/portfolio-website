@@ -1,59 +1,49 @@
 <template>
 	<!-- Hero content: will be in the middle -->
-		<h1 class="title">{{ getTopicTitle(topics[currentTopic]) }}</h1>
-		<p class="is-flex-grow-2 is-wrapped">
-			<slot>{{ getTopicTxt(topics[currentTopic]) }}</slot>
-		</p>
-		
-		<nav class="tabs is-boxed is-dark is-inverted has-text-centered is-fullwidth is-medium">
-			<ul>
-				<li v-for="(topic, index) in topics" :class="activeTopic(index)" @click="display(index)">
-					<!--					todo: createApp functionality topics have TheNavbar active TODO something isHome esModuleInterop routing-->
-					<a>{{ getTopicTitle(topic) }}</a>
-				</li>
-			</ul>
-		</nav>
+	<h1 class="title">{{ currentTopic.title }}</h1>
+	<article class="is-flex-grow-2">
+		<p class="is-size-5">{{ currentTopic.content }}</p>
+		<figure class="image  is-centered">
+			<img v-if="currentTopic.img" :alt="currentTopic?.alt" :src="getImg(currentTopic.img)" class="has-ratio " />
+		</figure>
+	</article>
+	<nav class="tabs is-boxed is-dark is-inverted has-text-centered is-fullwidth is-medium">
+		<ul>
+			<li v-for="(topic, index) in topics" :class="activeTopic(topic)" @click="currentTopic = topic">
+				<!--todo: createApp functionality topics have TheNavbar active TODO something isHome routing-->
+				<a>{{ topic.title }}</a>
+			</li>
+		</ul>
+	</nav>
 </template>
 
 <style>
+	img {
+		max-width: 15rem;
+		height: auto;
+	}
 </style>
 
 <script lang="ts" setup>
 	import {ref} from "vue";
+	import Topic from "@/models/topic";
 	
-	const props = defineProps({
-		topics: {
-			type: Array,
-			required: true
+	const props = defineProps<{
+		topics: Topic[];
+	}>();
+	const currentTopic = ref(props.topics[0]);
+	const getImg = (img: string) => {
+		try {
+			return require('@/assets/images/' + img)
 		}
-	});
-	const currentTopic = ref(0);
-	
-	const display = (index: number) => {
-		currentTopic.value = index;
+		catch(e) {
+			console.error(e);
+			return undefined;
+		}
 	};
-	function activeTopic(index: number) {
+	
+	function activeTopic(index: Topic) {
 		return index === currentTopic.value ? 'has-text-weight-bold is-active' : '';
-	}
-	function getTopicTitle(topic: any) {
-		if(typeof (topic) !== 'object')
-			return;
-		const {title, name} = topic;
-		if(title)
-			return title;
-		else if(name)
-			return name;
-		else
-			return Object.values(topic)[0];
-	}
-	function getTopicTxt(topic: any) {
-		if(typeof (topic) !== 'object')
-			return;
-		const {txt} = topic;
-		if(txt)
-			return txt;
-		else
-			return Object.values(topic)[1];
 	}
 
 </script>
