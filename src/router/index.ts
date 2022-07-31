@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
 import HomeView from "../pages/Home.vue";
-
+import contact from '../pages/Contact.vue'
 let homeRoute = {
 	path: "/",
 	name: "home",
@@ -18,7 +18,7 @@ const aboutRoute = {
 const contactRoute = {
 	 path: '/contact',
   name: 'contact',
-  component: import('../pages/Contact.vue'),
+  component: contact,
 };
 const f04Route: RouteRecordRaw = {
 	path: "/404",

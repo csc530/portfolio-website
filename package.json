@@ -6,13 +6,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "css-build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",
-    "css-watch": "npm run css-build -- --watch",
-    "start": "npm run css-watch",
-    "start-dev": "npm run start",
-    "ui-config": "vue ui || npx @vue ui"
+    "ui-config": "vue ui || npx @vue/cli ui"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "core-js": "^3.23.3",
     "eslint": "^8.17.0",
     "firebase": "^9.8.4",
