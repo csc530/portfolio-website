@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": "vue-cli-service build --mode production && firebase deploy --only hosting",
     "lint": "vue-cli-service lint",
     "ui-config": "vue ui || npx @vue/cli ui"
   },
