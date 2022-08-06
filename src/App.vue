@@ -4,6 +4,7 @@
 		<router-view />
 	</main>
 	<the-footer />
+	✝️🧠🍁👽
 </template>
 
 

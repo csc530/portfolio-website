@@ -5,6 +5,12 @@ const templateID: string = 'template_zwn6fj9';
 emailjs.init('mhCMhgqfhd2Mb9WmX')
 export default {
 	sendEmail: (email: string, name: string, subject: string, message: string) => {
-		return emailjs.send(serviceID, templateID, {email, name, message})
+		let templateParams: Record<string, string> = {
+			subject: subject,
+			from_name: name,
+			message: message,
+			sender: email,
+		};
+		return emailjs.send(serviceID, templateID, templateParams);
 	}
 }
