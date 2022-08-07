@@ -27,8 +27,8 @@
 	import BaseCard from '@/components/BaseCard.vue';
 	import Columnable from "@/models/columnContent";
 	import BaseColumns from "@/components/BaseColumns.vue";
-	
-	
+
+
 	interface EmploymentColumn extends Columnable {
 		title: string;
 		link?: string[] | Record<string, string>;
@@ -36,7 +36,7 @@
 		address: string,
 		term: [string, string?]
 	}
-	
+
 	const tommyHilfiger: EmploymentColumn = {
 		title: "Stock Associate",
 		address: 'Tommy Hilfiger, Mississauga, ON',
@@ -60,6 +60,17 @@
 		address: "99 Wellesley St, Toronto, ON",
 		term: ['2022-05-16', '2022-09-02']
 	};
-	
-	const employment: EmploymentColumn[] = [tommyHilfiger, ops]
+
+	const camp: EmploymentColumn = {
+title: 'Gospel Arts Camp',
+tasks: ['Organized and lead guided group activities with campers.','Collaborated with other camp counsellors to design fun and enriching learning activities for campers.','Provided campers with resources and support to help them develop their skills and interests.','Maintained facility and equipment to promote safe and secure environment for campers and staff',
+'Initiated and implemented improvements to how activities were carried out to provide the best experiences for campers'],
+address: '2626 Mayfield rd, Mississauga, ON',
+term: ['July 2017','August 2019'],
+display: function (): string {
+throw new Error('Function not implemented.');
+}
+};
+
+	const employment: EmploymentColumn[] = [tommyHilfiger, ops,camp]
 </script>

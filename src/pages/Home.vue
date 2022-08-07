@@ -34,7 +34,6 @@
 			christofer,
 			student,
 			developer,
-			projects,
 		];
 	}
 </script>
