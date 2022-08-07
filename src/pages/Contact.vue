@@ -1,28 +1,30 @@
 <template>
 	<h1>Hit me up!</h1>
-	<form v-if="!loading" accept-charset="UTF-8" method="post" action="" @submit="submit" enctype="text/plain" name="contactForm"
-		autocomplete="on">
+	<form v-if="!loading" accept-charset="UTF-8" action="" autocomplete="on" enctype="text/plain" method="post"
+	      name="contactForm"
+	      @submit="submit">
 		<label class="label" for="from">From:
-			<input v-model="name" type="text" name="from" id="from" required class="input"
-			placeholder="Koryn Kowalski"
-				title="Your name" /></label>
+			<input id="from" v-model="name" class="input" name="from" placeholder="Koryn Kowalski" required
+			       title="Your name"
+			       type="text" /></label>
 		<label class="label" for="email">Email:
-			<input type="email" v-model="email" name="email" id="email" required class="input" placeholder="koolPenguin@gmail.com"
-				title="Your email" /></label>
-		<label for="subject" class="label">Subject:
-			<input type="text" name="subject" class="input" id="subject" required v-model="subject"
-				placeholder="Hey, How are you?" /></label>
-		<label for="message" class="label">Message:
-			<textarea name="message" v-model="msg" id="message" required class="textarea"
-				placeholder="I love your website and wanted to know how you built it..."></textarea></label>
-		<input type="submit" value="Send" class="input button" />
+			<input id="email" v-model="email" class="input" name="email" placeholder="koolPenguin@gmail.com" required
+			       title="Your email"
+			       type="email" /></label>
+		<label class="label" for="subject">Subject:
+			<input id="subject" v-model="subject" class="input" name="subject" placeholder="Hey, How are you?" required
+			       type="text" /></label>
+		<label class="label" for="message">Message:
+			<textarea id="message" v-model="msg" class="textarea" name="message" placeholder="I love your website and wanted to know how you built it..."
+			          required></textarea></label>
+		<input class="input button" type="submit" value="Send" />
 	</form>
 	<loading v-else></loading>
 </template>
 
 <script setup lang="ts">
 import Email from '../models/Email';
-import { reactive, ref } from 'vue';
+import {ref } from 'vue';
 import { $ref } from 'vue/macros';
 import router from '@/router';
 import { EmailJSResponseStatus } from '@emailjs/browser';
@@ -35,6 +37,7 @@ const subject = ref<string>('');
 let loading = ref(false);
 const sentSuccess = (response: EmailJSResponseStatus) => {
 	loading.value = false;
+	console.log(response);
 	router.push(router.resolve('success'));
 };
 const sendFailure = (error: any) => {

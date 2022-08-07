@@ -12,7 +12,9 @@
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "@loadingio/css-spinner": "^2.0.2",
+    "@octokit/core": "^4.0.4",
     "core-js": "^3.23.3",
+    "emailjs": "^4.0.0",
     "eslint": "^8.17.0",
     "firebase": "^9.8.4",
     "node-sass": "^7.0.1",

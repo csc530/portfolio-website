@@ -3,9 +3,10 @@
 	<section :class="bulma" class="columns">
 		<div v-for="item in data" class="column" :class="item.class">
 			<slot v-if="$slots.default" v-bind="item" />
-			<component :is="component" v-else v-bind="item">
+			<component :is="component" v-else-if="component" v-bind="item">
 				{{ item.display() }}
 			</component>
+			<span v-else>{{ item.display() }}</span>
 		</div>
 	</section>
 </template>

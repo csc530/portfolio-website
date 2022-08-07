@@ -56,8 +56,13 @@ const employmentRoute: RouteRecordRaw = {
 	],
 	
 };
+const projectsRoute: RouteRecordRaw = {
+	path: '/projects',
+	name: 'projects',
+    component: () => import('@/pages/projects.vue'),
+};
 
-const routes: RouteRecordRaw[] = [homeRoute, aboutRoute, contactRoute, DNERoute, f04Route, employmentRoute];
+const routes: RouteRecordRaw[] = [homeRoute, aboutRoute, contactRoute, DNERoute, f04Route, employmentRoute, projectsRoute];
 
 const router = createRouter({
 	history: createWebHistory(),
