@@ -34,9 +34,11 @@
 	import BaseCard from "@/components/BaseCard.vue";
 	import usersRepos = namespace.UsersRepos;
 
+	//todo: get repos doesn't work in build
 	const octokit = new Octokit({auth: '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'});
 	const publicRepos = ref<Columnable[]>([]);
-	const privateRepos = ref<Columnable[]>([]);/*get public and private repos from GitHub; pre-mount*/
+	const privateRepos = ref<Columnable[]>([]);
+	/*get public and private repos from GitHub; pre-mount*/
 
 	const toColumns = (repos: any[]): Columnable[] => {
 		const arr =repos as usersRepos[];

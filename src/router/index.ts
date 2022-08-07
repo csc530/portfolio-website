@@ -59,7 +59,7 @@ const employmentRoute: RouteRecordRaw = {
 const projectsRoute: RouteRecordRaw = {
 	path: '/projects',
 	name: 'projects',
-    component: () => import('@/pages/projects.vue'),
+    component: () => import('@/pages/Projects.vue'),
 };
 
 const routes: RouteRecordRaw[] = [homeRoute, aboutRoute, contactRoute, DNERoute, f04Route, employmentRoute, projectsRoute];
