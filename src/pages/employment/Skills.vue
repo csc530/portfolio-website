@@ -2,11 +2,9 @@
 
 </template>
 
+<style scoped>
+</style>
 <script setup>
-	name = 'Skills';
+name = 'Skills';
 
 </script>
-
-<style scoped>
-
-</style>

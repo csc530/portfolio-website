@@ -10,7 +10,8 @@
 		</div>
 	</section>
 </template>
-
+<style scoped>
+</style>
 <script lang="ts" setup>
 	import {defineProps,} from "vue";
 	import Columnable, {ColumnHeader} from "@/models/columnContent";
@@ -25,5 +26,3 @@
 	}>();
 </script>
 
-<style scoped>
-</style>

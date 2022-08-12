@@ -21,7 +21,8 @@
 	</form>
 	<loading v-else></loading>
 </template>
-
+<style scoped>
+</style>
 <script setup lang="ts">
 import Email from '../models/Email';
 import {ref } from 'vue';
@@ -50,6 +51,3 @@ const submit = () => {
 	response.then(sentSuccess,sendFailure);
 };
 </script>
-
-<style scoped>
-</style>

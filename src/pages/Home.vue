@@ -2,6 +2,8 @@
 	<hero-home :topics="topics"></hero-home>
 </template>
 
+<style lang="sass"></style>
+
 <script lang="ts">
 	import {Options, Vue} from "vue-class-component";
 	import HeroHome from '@/components/HeroHome.vue';

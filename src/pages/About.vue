@@ -23,6 +23,7 @@
 <style scoped>
 
 </style>
+
 <script lang="ts" setup>
 	
 	import BaseCard from "../components/BaseCard.vue";

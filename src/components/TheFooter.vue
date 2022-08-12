@@ -11,6 +11,9 @@
 	</footer>
 </template>
 
+<style scoped>
+
+</style>
 <script setup lang="js">
 	const links = [
 		{
@@ -36,7 +39,3 @@
 	];
 	
 </script>
-
-<style scoped>
-
-</style>
