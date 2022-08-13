@@ -4,19 +4,20 @@
 		<meta charset="utf-8">
 		<meta content="IE=edge" http-equiv="X-UA-Compatible">
 		<meta content="width=device-width,initial-scale=1.0" name="viewport">
-		<link href="<%= BASE_URL %>favicon.ico" rel="icon">
+		<link href="/favicon.ico" rel="icon">
 		<link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
 		<script async crossorigin="anonymous" src="https://kit.fontawesome.com/f6ae6b9ec4.js"></script>
-		<script defer src="bulma.js"></script>
-		<title><%= htmlWebpackPlugin.options.title %></title>
+		<script defer src="public/bulma.js"></script>
+		<title>CSC 530</title>
 	</head>
 	<body id="app" class="hero is-fullheight">
+		<script type="module" src="/src/main.ts"></script>
 		<script>
-			console.dir(<%= JSON.stringify(htmlWebpackPlugin) %>);
+			// console.dir(<%= JSON.stringify(htmlWebpackPlugin) %>);
 		</script>
 		<!-- built files will be auto injected -->
 		<noscript>
-			<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript
+			<strong>We're sorry but this app doesn't work properly without JavaScript
 			        enabled. Please enable it to continue.</strong>
 		</noscript>
 	</body>

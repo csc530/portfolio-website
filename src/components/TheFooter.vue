@@ -12,9 +12,8 @@
 </template>
 
 <style scoped>
-
 </style>
-<script setup lang="js">
+<script setup >
 	const links = [
 		{
 			href: '#',
