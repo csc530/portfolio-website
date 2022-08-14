@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+//    according to https://vitejs.dev/guide/features.html#typescript
+    "isolatedModules": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -33,7 +35,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "node_modules/vue/macros-global.d.ts",
   ],
   "exclude": [
     "node_modules"

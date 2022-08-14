@@ -30,7 +30,11 @@
 		</template>
 	</base-columns>
 </template>
-<style scoped>
+<style lang="css" scoped>
+body {
+	background-color: #fafafa;
+	/* background-image: url('src/assets/images/programmer-typing.gif'); */
+}
 </style>
 <script lang="ts" setup>
 /// Octokit.js	// https://github.com/octokit/core.js#readme
@@ -42,46 +46,47 @@ import BaseCard from "@/components/BaseCard.vue";
 import usersRepos = namespace.UsersRepos;
 import { firestore } from "../models/db";
 //todo: get repos doesn't work in build
-const octokit = new Octokit({ auth: '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' });
+// const octokit = new Octokit({ auth: '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' });
 const publicRepos = ref<Columnable[]>([]);
 const privateRepos = ref<Columnable[]>([]);
-/*get public and private repos from GitHub; pre-mount*/
+// /*get public and private repos from GitHub; pre-mount*/
 
-const toColumns = (repos: any[]): Columnable[] => {
-	const arr = repos as usersRepos[];
-	return arr.map(repo => {
-		const col = <Columnable>{
-			name: repo.name.replaceAll('-', ' '),
-			description: repo.description,
-			url: repo.html_url,
-			language: repo.language,
-			stars: repo.stargazers_count,
-			forks: repo.forks_count,
-			updated: repo.updated_at,
-			display() {
-				return `${repo.name} - ${repo.description}`;
-			}
-		};
-		return col;
-	});
-};
-const getRepos = async (visibility: "all" | "public" | "private"): Promise<Columnable[]> => {
-	let response = (await octokit.request('GET /user/repos', {
-		username: 'csc530',
-		visibility: visibility,
-	})).data;
-	if (visibility === 'public')
-		publicRepos.value = toColumns(response);
-	else if (visibility === 'private')
-		privateRepos.value = toColumns(response);
-	else
-		return toColumns(response);
-	return [];
-};
+// const toColumns = (repos: any[]): Columnable[] => {
+// 	const arr = repos as usersRepos[];
+// 	return arr.map(repo => {
+// 		const col = {
+// 			name: repo.name.replaceAll('-', ' '),
+// 			description: repo.description,
+// 			url: repo.html_url,
+// 			language: repo.language,
+// 			stars: repo.stargazers_count,
+// 			forks: repo.forks_count,
+// 			updated: repo.updated_at,
+// 			display() {
+// 				return `${repo.name} - ${repo.description}`;
+// 			}
+// 		};
+// 		return col	;
+// 	});
+// };
+
+// const getRepos = async (visibility: "all" | "public" | "private") => {
+// 	let response = (await octokit.request('GET /user/repos', {
+// 		username: 'csc530',
+// 		visibility: visibility,
+// 	})).data;
+// 	if (visibility === 'public')
+// 		publicRepos.value = toColumns(response);
+// 	else if (visibility === 'private')
+// 		privateRepos.value = toColumns(response);
+// 	else
+// 		return toColumns(response);
+// 	return [];
+// };
 
 
-getRepos("public");
-getRepos("private");
+// getRepos("public");
+// getRepos("private");
 
 
 </script>
