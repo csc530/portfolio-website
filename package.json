@@ -2,6 +2,7 @@
   "name": "portfolio-website",
   "version": "2.0.0",
   "private": true,
+  "description": "Old portfolio website. Retired it as a project since vite at the time was not meeting my need to fetch from GitHub API with Ocktokit as used the Stream module which was not available.",
   "scripts": {
     "dev": "vite --host -d --open -f resolve",
     "build": "vite build",

@@ -7,8 +7,7 @@
 		<p class="card-content">You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go
 		                        build something extraordinary!</p>
 		
-		<a class="card-footer-item" href="https://firebase.google.com/docs/hosting/" target="_blank">Open Hosting
-		                                                                                             Documentation</a>
+		<a class="card-footer-item" href="https://firebase.google.com/docs/hosting/" target="_blank">Open Hosting		                                                                                             Documentation</a>
 	</div>
 	<p id="load">Firebase SDK Loading&hellip;</p>
 </template>

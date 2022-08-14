@@ -69,4 +69,5 @@
 	const isHome = computed(() => {
 		return route.path === '/';
 	});
+	console.dir(import.meta);
 </script>
